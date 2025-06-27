@@ -1,0 +1,147 @@
+/* SignUp.css */
+
+/* This is like painting the whole big picture frame of our toy house. */
+.container {
+    display: flex; /* This means arrange things in a row or column, like a neat line. */
+    justify-content: center; /* Put everything right in the middle, horizontally. */
+    align-items: center; /* Put everything right in the middle, vertically. */
+    min-height: 100vh; /* Make sure this frame takes up the whole screen height. */
+    background-color: #4a6794d3; /* A light grey color for the background, like a calm sky. */
+    padding: 20px; /* Give a little bit of space all around the edges so things aren't squished. */
+    box-sizing: border-box; /* This helps make sure padding and borders don't make our boxes bigger than we want. */
+}
+
+/* This is the main house itself, the box where all your signup stuff lives. */
+.signup-container {
+    background-color: #a3d3e6; /* Make the inside of the house white, like clean walls. */
+    padding: 40px; /* Give lots of space inside the house so things aren't too close. */
+    border-radius: 15px; /* Make the corners of the house a little bit round and soft. */
+    box-shadow: 0 9px 9px rgba(0, 0, 0, 0.1); /* Add a soft shadow behind the house, like it's popping out a bit. */
+    width: 100%; /* Make it take up all the space it can within its frame. */
+    max-width: 400px; /* But don't let it get too wide, keep it a nice size. */
+    text-align: center; /* Make all the words inside the house sit in the middle. */
+}
+
+/* This is for the big title, "Create Account". */
+.signup-container h2 {
+    margin-bottom: 10px; /* Give a little space below the title. */
+    color: #2b2828f1; /* Make the title a dark grey color. */
+    font-size: 29px; /* Make the title big and easy to read. */
+}
+
+/* This is for the little message below the title. */
+.signup-container .p1 {
+    margin-bottom: 30px; /* Give more space below this message. */
+    color: #474242; /* Make the message a lighter grey. */
+    font-size: 16px; /* A good size for reading. */
+}
+
+/* This is for the whole form where you type things. */
+.signup-form {
+    display: flex; /* Arrange the input boxes nicely. */
+    flex-direction: column; /* Stack them on top of each other. */
+    gap: 15px; /* Put a little space between each input box. */
+}
+
+/* This is for each group of label and input box (like "Username" and its box). */
+.formGroup {
+    text-align: left; /* Make the label words start from the left. */
+}
+
+/* This is for the little words like "Username" and "Email". */
+.formGroup label {
+    display: block; /* Make sure each label sits on its own line. */
+    margin-bottom: 8px; /* Give a little space below the label. */
+    color: #312f2f; /* Make the label words a medium grey. */
+    font-weight: bold; /* Make the label words a bit thicker so they stand out. */
+    font-size: 14.5px; /* A good size for labels. */
+}
+
+/* This is for all the boxes where you type (username, email, password). */
+.formGroup input {
+    width: 100%; /* Make the box fill up all the space it can. */
+    padding: 12px; /* Give some space inside the box so your typing isn't squished. */
+    border: 1px solid #d3cece; /* Give the box a light grey border. */
+    border-radius: 5px; /* Make the corners of the box a little round. */
+    font-size: 16px; /* A good size for the text you type. */
+    box-sizing: border-box; /* Again, helps with consistent sizing. */
+    background-color: rgb(217, 226, 233);
+    outline:none;
+}
+
+/* This is for the "Sign Up" button. */
+.signup-btn {
+    background-color: #007bff; /* Make the button a bright blue color, like the sky on a sunny day! */
+    color: white; /* Make the words on the button white. */
+    padding: 12px 20px; /* Give space inside the button so it looks good. */
+    border: none; /* No border around the button. */
+    border-radius: 5px; /* Round corners for the button. */
+    font-size: 18px; /* Make the words on the button big. */
+    cursor: pointer; /* When you put your mouse over it, it looks like you can click it! */
+    transition: background-color 0.3s ease; /* Make the color change smoothly when you hover. */
+    margin-top: 20px; /* Give some space above the button. */
+}
+
+/* This is what happens when you put your mouse over the "Sign Up" button. */
+.signup-btn:hover {
+    background-color: #0056b3; /* Make it a slightly darker blue when you hover, like a hint that it's clickable. */
+}
+
+/* This is for the line and "or" in the middle. */
+.divider {
+    display: flex; /* Arrange the lines and "or" in a row. */
+    align-items: center; /* Make them all sit nicely in the middle of the row. */
+    margin: 20px 0; /* Give space above and below the divider. */
+    color: #1d1b1b; /* Make the "or" and lines a light grey. */
+}
+
+/* These are the lines in the divider. */
+.divider hr {
+    flex-grow: 1; /* Make the lines stretch out and fill the space. */
+    border: none; /* No ugly default border. */
+    border-top: 1px solid #312f2f; /* Just a thin, light grey line. */
+    margin: 0 10px; /* Give a little space on the sides of the lines. */
+}
+
+/* This is for the "Sign Up with Google" button. */
+.signup-google {
+    background-color: #f5f0f0; /* A very light grey background. */
+    color: #3a3737; /* Medium grey text. */
+    padding: 10px 20px; /* Space inside the button. */
+    border: 1px solid #ddd; /* A light grey border. */
+    border-radius: 5px; /* Rounded corners. */
+    font-size: 16px; /* Good text size. */
+    cursor: pointer; /* Makes it look clickable. */
+    transition: background-color 0.3s ease; /* Smooth color change on hover. */
+    display: flex; /* Arrange the logo and text in a row. */
+    align-items: center; /* Align them nicely in the middle. */
+    justify-content: center; /* Put them in the center of the button. */
+    gap: 10px; /* Give space between the logo and the text. */
+}
+
+/* What happens when you put your mouse over the Google button. */
+.signup-google:hover {
+    background-color: #eee; /* A slightly darker grey when you hover. */
+}
+
+/* This is for the little Google logo picture. */
+.google-logo {
+    width: 28px; /* Make the logo 20 pixels wide. */
+    height: 28px; /* Make the logo 20 pixels tall. */
+    vertical-align: middle; /* Make sure it sits nicely in the middle of the text. */
+}
+
+/* This helps your layout look good on smaller screens, like a phone! */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 20px; /* Make the padding a bit smaller on small screens. */
+    }
+    .signup-container h2 {
+        font-size: 24px; /* Make the title a bit smaller on small screens. */
+    }
+    .signup-btn, .signup-google {
+        font-size: 16px; /* Make button text a bit smaller. */
+        padding: 10px 15px; /* Smaller padding for buttons. */
+    }
+}
+

@@ -1,0 +1,208 @@
+/* Home.css */
+
+/* This is like the long, welcoming mat that goes across the top of your castle. */
+.nav-container {
+    background-color: #23282c; /* A deep, friendly blue for the background of the mat. */
+    color: white; /* Make all the words on the mat white so they stand out. */
+    padding: 15px 30px; /* Give some cozy space inside the mat. */
+    display: flex; /* Arrange everything inside the mat in a nice row. */
+    justify-content: space-between; /* Spread out the logo, links, and buttons evenly. */
+    align-items: center; /* Make sure everything sits nicely in the middle vertically. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A soft shadow, like the mat is slightly raised. */
+    font-family: 'Inter', sans-serif; /* A clean, easy-to-read font. */
+    position: sticky; /* This makes the navigation stick to the top when you scroll! */
+    top: 0; /* Stick it right at the very top. */
+    z-index: 1000; /* Make sure it's always on top of other things if you scroll. */
+}
+
+/* This is for the "QUIZ APP" name, like the fancy sign on your castle. */
+.nav-logo a {
+    color: white; /* Keep the logo white. */
+    font-size: 26px; /* Make the logo big and bold. */
+    font-weight: bold; /* Make the letters thick. */
+    text-decoration: none; /* No underline, even though it's a link. */
+    transition: color 0.3s ease; /* Smooth color change when you hover. */
+}
+
+/* What happens when your mouse goes over the "QUIZ APP" sign. */
+.nav-logo a:hover {
+    color: #4CAF50; /* Change it to a bright green, like a welcoming glow! */
+}
+
+/* This is for the list of links (Home, Quizzes, Profile), like signposts. */
+.nav-links {
+    list-style: none; /* No bullet points next to the links. */
+    margin: 0; /* No extra space around the list. */
+    padding: 0; /* No padding inside the list. */
+    display: flex; /* Arrange the links in a row. */
+    gap: 25px; /* Put some space between each signpost. */
+}
+
+/* This is for each individual link (Home, Quizzes, Profile). */
+.nav-links li a {
+    color: white; /* Keep the link words white. */
+    text-decoration: none; /* No underline for the links. */
+    font-size: 17px; /* A good size for the link words. */
+    transition: color 0.3s ease, transform 0.3s ease, bold 0.3 ease font-size 0.3s ease; /* Smooth color and tiny movement change on hover. */
+}
+
+/* What happens when your mouse goes over a link. */
+.nav-links li a:hover {
+    color: #4CAF50; /* Change to bright green. */
+    transform: translateY(-2px); /* Make it jump up a tiny bit, like it's saying "Click me!" */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* This is for the "Login" and "Sign Up" buttons. */
+.btns {
+    display: flex; /* Arrange the buttons side by side. */
+    gap: 15px; /* Put some space between the two buttons. */
+}
+
+/* This is for both the "Login" and "Sign Up" buttons. */
+.btns button {
+    padding: 10px 20px; /* Give space inside the buttons. */
+    border: none; /* No border around the buttons. */
+    border-radius: 5px; /* Make the corners soft and round. */
+    font-size: 16px; /* A good size for the button words. */
+    cursor: pointer; /* Makes them look clickable. */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth color and tiny movement change. */
+    font-weight: bold; /* Make the words thick. */
+}
+
+/* This is for the "Login" button specifically. */
+.loginBtn {
+    background-color: #3498db; /* A bright blue color for Login. */
+    color: white; /* White words. */
+}
+
+/* What happens when you hover over the Login button. */
+.loginBtn:hover {
+    background-color: #2980b9; /* A slightly darker blue. */
+    transform: translateY(-2px); /* Jump up a tiny bit. */
+}
+
+/* This is for the "Sign Up" button specifically. */
+.signupBtn {
+    background-color: #2ecc71; /* A nice green color for Sign Up. */
+    color: white; /* White words. */
+}
+
+/* What happens when you hover over the Sign Up button. */
+.signupBtn:hover {
+    background-color: #27ae60; /* A slightly darker green. */
+    transform: translateY(-2px); /* Jump up a tiny bit. */
+}
+
+/* This is the big welcoming area below the navigation, like the main hall. */
+.dashBoard {
+    height: 100vh;
+   /* Make it take up most of the screen height, leaving space for the nav. */
+    display: flex; /* Arrange its contents nicely. */
+    flex-direction: column; /* Stack the heading and paragraph. */
+    justify-content: center; /* Put everything in the middle vertically. */
+    align-items: center; /* Put everything in the middle horizontally. */
+    background: linear-gradient(135deg, #7f8c8d, #34495e); /* A cool gradient background, like a changing sky. */
+    color: white; /* Make the words white. */
+    text-align: center; /* Center the words. */
+    padding: 20px; /* Give some space inside. */
+}
+
+/* This is for the big "Welcome to Quiz App" words. */
+.dashBoard h1 {
+    font-size: 60px; /* Make the welcome message super big! */
+    margin-bottom: 10px; /* Space below the welcome message. */
+    animation: fadeInDown 1s ease-out; /* Make it softly appear from the top! */
+}
+
+/* This is for the little message below the welcome words. */
+.dashBoard p {
+    font-size: 24px; /* A good size for the message. */
+    opacity: 0.9; /* Make it a little bit transparent so it's softer. */
+    animation: fadeInUp 1s ease-out 0.5s forwards; /* Make it softly appear from the bottom, after a short delay! */
+}
+
+/* This is the magic for the animation (how things softly appear). */
+@keyframes fadeInDown {
+    from {
+        opacity: 0; /* Start completely invisible. */
+        transform: translateY(-20px); /* Start 20 steps above its final spot. */
+    }
+    to {
+        opacity: 1; /* End fully visible. */
+        transform: translateY(0); /* End in its normal spot. */
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start completely invisible. */
+        transform: translateY(20px); /* Start 20 steps below its final spot. */
+    }
+    to {
+        opacity: 1; /* End fully visible. */
+        transform: translateY(0); /* End in its normal spot. */
+    }
+}
+
+
+/* Now, let's make it look good on smaller screens, like a phone! */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Stack the logo, links, and buttons vertically. */
+        padding: 15px 20px; /* Smaller padding. */
+    }
+
+    .nav-logo {
+        margin-bottom: 15px; /* Space below the logo. */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack the links vertically. */
+        gap: 10px; /* Smaller space between links. */
+        margin-bottom: 15px; /* Space below the links. */
+    }
+
+    .btns {
+        width: 100%; /* Make buttons take full width. */
+        flex-direction: column; /* Stack the login and signup buttons. */
+        gap: 10px; /* Smaller space between buttons. */
+    }
+
+    .btns button {
+        width: 100%; /* Make buttons stretch across. */
+    }
+
+    .login Link{
+        text-decoration: none;
+    }
+
+    .dashBoard h1 {
+        font-size: 40px; /* Smaller title on phones. */
+    }
+
+    .dashBoard p {
+        font-size: 18px; /* Smaller paragraph on phones. */
+    }
+}
+
+/* For very small phones */
+@media (max-width: 480px) {
+    .nav-logo a {
+        font-size: 20px; /* Even smaller logo. */
+    }
+    .nav-links li a {
+        font-size: 15px; /* Even smaller links. */
+    }
+    .btns button {
+        font-size: 14px; /* Even smaller button text. */
+        padding: 8px 15px; /* Smaller button padding. */
+    }
+    .dashBoard h1 {
+        font-size: 30px; /* Smallest title size. */
+    }
+    .dashBoard p {
+        font-size: 16px; /* Smallest paragraph size. */
+    }
+}

@@ -1,0 +1,123 @@
+/* Login.css */
+
+/* This is like painting the whole big picture frame for our login house. */
+.container {
+    display: flex; /* Arrange things in a line. */
+    justify-content: center; /* Put everything in the middle, horizontally. */
+    align-items: center; /* Put everything in the middle, vertically. */
+    min-height: 100vh; /* Make sure this frame takes up the whole screen height. */
+    background-color: #2667c9; /* A light grey background, like a peaceful sky. */
+    padding: 20px; /* Give a little space around the edges. */
+    box-sizing: border-box; /* Helps with sizing. */
+}
+
+/* This is the main login house itself, the box where your login stuff lives. */
+.form-container {
+    background-color: #ffffff; /* Make the inside of the house white, like clean walls. */
+    padding: 40px; /* Give lots of space inside. */
+    border-radius: 19px; /* Make the corners soft and round. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow, like it's a bit raised. */
+    width: 100%; /* Take up all available space inside its frame. */
+    max-width: 380px; /* But don't let it get too wide, keep it a good size. */
+    text-align: center; /* Make all the words inside sit in the middle. */
+}
+
+/* This is for the "Login" title. */
+.login-heading {
+    margin-bottom: 30px; /* Give a good space below the title. */
+    color: #333; /* Make the title dark grey. */
+    font-size: 29px; /* Make the title big and clear. */
+}
+
+/* This is for the whole form where you type things. */
+.form-box {
+    display: flex; /* Arrange the input boxes nicely. */
+    flex-direction: column; /* Stack them on top of each other. */
+    gap: 15px; /* Put a little space between each input box. */
+}
+
+/* This is for each group of label and input box (like "Email" and its box). */
+.login-Group {
+    text-align: left; /* Make the label words start from the left. */
+}
+
+/* This is for the words like "Email" and "Password". */
+.login-Group label {
+    display: block; /* Make sure each label sits on its own line. */
+    margin-bottom: 8px; /* Give a little space below the label. */
+    color: #555; /* Make the label words a medium grey. */
+    font-weight: bold; /* Make the words a bit thicker. */
+    font-size: 14px; /* A good size for labels. */
+}
+
+/* This is for all the boxes where you type (email, password). */
+.login-Group input {
+    width: 100%; /* Make the box fill up all the space. */
+    padding: 12px; /* Give space inside the box. */
+    border: 1px solid #ddd; /* Give the box a light grey border. */
+    border-radius: 7px; /* Make the corners of the box a little round. */
+    font-size: 16px; /* A good size for the text you type. */
+    box-sizing: border-box; /* Helps with consistent sizing. */
+    outline: none;
+}
+
+/* This is for the "Show Password" checkbox area. */
+.check-box {
+    display: flex; /* Arrange the checkbox and words next to each other. */
+    align-items: center; /* Make them sit nicely in the middle. */
+    margin-top: 5px; /* Give a little space above it. */
+    margin-bottom: 20px; /* Give more space below it before the button. */
+    text-align: left; /* Align items to the left. */
+    justify-content: flex-start; /* Start items from the left. */
+}
+
+/* This is for the actual little checkbox square. */
+.check-box input[type='checkbox'] {
+    width: auto; /* Let the checkbox be its normal small size. */
+    margin-right: 8px; /* Give a little space between the checkbox and the words. */
+    cursor: pointer; /* Makes it look clickable. */
+}
+
+/* This is for the "Show Password" words next to the checkbox. */
+.check-box label {
+    color: #555; /* Make the words a soft grey. */
+    font-size: 15px; /* A good size for these helper words. */
+    cursor: pointer; /* Makes the label clickable too! */
+}
+
+/* This is the container for the "Sign in" button to center it. */
+.login-btn-container {
+    text-align: center; /* Center the button inside this container. */
+}
+
+/* This is for the "Sign in" button. */
+.login-btn {
+    background-color: #28a745; /* Make the button a nice green color! */
+    color: white; /* Make the words on the button white. */
+    padding: 12px 25px; /* Give space inside the button. */
+    border: none; /* No border around the button. */
+    border-radius: 5px; /* Round corners for the button. */
+    font-size: 18px; /* Make the words on the button big. */
+    cursor: pointer; /* When you put your mouse over it, it looks like you can click it! */
+    transition: background-color 0.3s ease; /* Make the color change smoothly when you hover. */
+    width: 100%; /* Make the button stretch to fit the width. */
+}
+
+/* This is what happens when you put your mouse over the "Sign in" button. */
+.login-btn:hover {
+    background-color: #218838; /* Make it a slightly darker green when you hover. */
+}
+
+/* This helps your layout look good on smaller screens, like a phone! */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 25px; /* Make the padding a bit smaller on small screens. */
+    }
+    .login-heading {
+        font-size: 24px; /* Make the title a bit smaller on small screens. */
+    }
+    .login-btn {
+        font-size: 16px; /* Make button text a bit smaller. */
+        padding: 10px 20px; /* Smaller padding for buttons. */
+    }
+}
