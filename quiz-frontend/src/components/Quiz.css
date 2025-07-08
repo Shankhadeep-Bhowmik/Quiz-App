@@ -1,0 +1,428 @@
+/* Quiz.css */
+
+/* This is the big outer box for our whole quiz game. */
+/* Imagine it's the giant background paper for our drawing. */
+.quiz-outer-container {
+    display: flex; /* This tells the computer to arrange things in a line or column. */
+    flex-direction: column; /* We want things stacked on top of each other. */
+    align-items: center; /* This makes everything line up in the middle from left to right. */
+    justify-content: center; /* This makes everything line up in the middle from top to bottom. */
+    min-height: 100vh; /* Make sure this background paper covers the whole screen height. */
+    background: linear-gradient(135deg, #a3d3e6, #f0f2f5); /* A pretty color fade from light blue to light grey. */
+    padding: 20px; /* Give a bit of space all around the edges so nothing touches the very end. */
+    box-sizing: border-box; /* This helps make sure adding padding or borders doesn't make our boxes unexpectedly bigger. */
+    font-family: 'Arial', sans-serif; /* We'll use a simple, clear font for all the words. */
+}
+
+/* This is the main box inside the outer container, where all the quiz magic happens. */
+/* Think of it as the main drawing canvas. */
+.quiz-content-box {
+    background-color: #ffffff; /* Make the canvas white, like fresh paper. */
+    padding: 40px; /* Give lots of space inside the canvas so things aren't squished. */
+    border-radius: 15px; /* Make the corners of our canvas nice and round. */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a soft shadow to make the canvas look like it's floating a bit. */
+    width: 100%; /* Make the canvas try to fill all the space it can. */
+    max-width: 600px; /* But don't let it get super wide, keep it a good size for reading. */
+    text-align: center; /* Make all the words inside our canvas sit in the middle. */
+    animation: fadeIn 0.8s ease-out; /* Make the whole box softly appear when it shows up. */
+}
+
+/* Animation for making things softly appear. */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); } /* Start invisible and a little bit down. */
+    to { opacity: 1; transform: translateY(0); } /* End fully visible and in its normal spot. */
+}
+
+/* This is for the big "Quiz Zone!" title. */
+.quiz-title {
+    color: #333; /* Make the title a dark grey color. */
+    font-size: 36px; /* Make the title big and exciting! */
+    font-weight: bold; /* Make the letters thick and strong. */
+    margin-bottom: 30px; /* Give lots of space below the title. */
+}
+
+/* This is for the "Please Wait..." message when loading. */
+.loading-message {
+    font-size: 20px; /* A good size for the message. */
+    color: #555; /* A medium grey color. */
+    display: flex; /* Arrange the spinning circle and text next to each other. */
+    align-items: center; /* Line them up in the middle. */
+    justify-content: center; /* Center them on the screen. */
+    margin-top: 20px; /* Give space above the message. */
+}
+
+/* This is for the little spinning circle next to the "Please Wait..." message. */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* A light grey border for the circle. */
+    border-top: 4px solid #007bff; /* Make the top part of the border blue, so it looks like it's spinning. */
+    border-radius: 50%; /* Make it perfectly round. */
+    width: 24px; /* How wide the circle is. */
+    height: 24px; /* How tall the circle is. */
+    animation: spin 1s linear infinite; /* Make it spin forever smoothly! */
+    margin-right: 10px; /* Give a little space between the spinner and the words. */
+}
+
+/* This is the magic for the spinning circle. */
+@keyframes spin {
+    0% { transform: rotate(0deg); } /* Start at 0 degrees. */
+    100% { transform: rotate(360deg); } /* Spin all the way around to 360 degrees. */
+}
+
+/* This is for the "Oops! Something went wrong!" message box. */
+.error-message {
+    background-color: #ffe0e0; /* A very light red background, like a warning sign. */
+    border: 1px solid #ff4d4d; /* A red border. */
+    color: #d90000; /* Dark red text. */
+    padding: 15px; /* Space inside the box. */
+    border-radius: 8px; /* Round corners. */
+    margin-bottom: 20px; /* Space below the message. */
+    text-align: left; /* Make the text start from the left. */
+    font-size: 15px; /* Good size for error text. */
+}
+
+/* This makes the "Error:" word inside the message strong. */
+.error-strong {
+    font-weight: bold; /* Make it thick. */
+    margin-right: 5px; /* Give a little space after it. */
+}
+
+/* This is the area where you choose your quiz category. */
+.category-selection-area {
+    margin-top: 20px; /* Give some space above this section. */
+}
+
+/* This is the title "Choose a Quiz Game Table:". */
+.category-heading {
+    font-size: 24px; /* Big enough to see clearly. */
+    color: #555; /* Medium grey. */
+    margin-bottom: 20px; /* Space below the heading. */
+}
+
+/* This is the grid for all the category buttons. */
+.category-grid {
+    display: grid; /* Arrange buttons in a grid, like a checkerboard. */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Make columns that are at least 140px wide, and stretch to fill space. */
+    gap: 15px; /* Put space between each button. */
+    margin-bottom: 30px; /* Space below the grid. */
+}
+
+/* This is for each individual category button (like "History", "Science"). */
+.category-button {
+    background-color: #e0f7fa; /* A very light blue background. */
+    color: #007bff; /* Bright blue text. */
+    padding: 15px 10px; /* Space inside the button. */
+    border: 2px solid #b3e5fc; /* A slightly darker blue border. */
+    border-radius: 8px; /* Round corners. */
+    font-size: 16px; /* Good size for text. */
+    font-weight: bold; /* Make text thick. */
+    cursor: pointer; /* Makes it look clickable. */
+    transition: all 0.3s ease; /* Makes color and size changes smooth. */
+}
+
+/* What happens when your mouse goes over a category button. */
+.category-button:hover {
+    background-color: #cceeff; /* Make it a bit darker blue. */
+    border-color: #81d4fa; /* Darker blue border. */
+    transform: translateY(-3px); /* Make it jump up a little, like it's saying "Pick me!" */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow. */
+}
+
+/* What happens when a category button is chosen/selected. */
+.category-button.selected {
+    background-color: #007bff; /* Make it bright blue! */
+    color: white; /* White text. */
+    border-color: #0056b3; /* Darker blue border. */
+    transform: scale(1.05); /* Make it grow a tiny bit bigger. */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* A stronger shadow. */
+}
+
+/* This is for the big "Start Quiz!" button. */
+.start-quiz-button {
+    background-color: #28a745; /* A cheerful green color. */
+    color: white; /* White text. */
+    padding: 15px 30px; /* Lots of space inside. */
+    border: none; /* No ugly border. */
+    border-radius: 10px; /* Round corners. */
+    font-size: 22px; /* Big, easy-to-read text. */
+    font-weight: bold; /* Thick letters. */
+    cursor: pointer; /* Looks clickable. */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth changes. */
+    width: 100%; /* Make it stretch across. */
+    max-width: 300px; /* But not too wide. */
+}
+
+/* What happens when your mouse goes over the "Start Quiz!" button. */
+.start-quiz-button:hover {
+    background-color: #218838; /* A slightly darker green. */
+    transform: translateY(-3px); /* Jump up a little. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a soft shadow. */
+}
+
+/* What happens when the "Start Quiz!" button is greyed out (disabled). */
+.start-quiz-button:disabled {
+    background-color: #cccccc; /* Make it light grey. */
+    cursor: not-allowed; /* Show a "stop" sign for the mouse. */
+    transform: none; /* Don't jump up. */
+    box-shadow: none; /* No shadow. */
+    opacity: 0.7; /* Make it a little see-through. */
+}
+
+/* This is the main area where the quiz questions are shown. */
+.quiz-playing-area {
+    margin-top: 20px; /* Space above. */
+}
+
+/* This bar shows "Question 1 / 10", "Score: 0", AND THE TIMER! */
+.quiz-info-bar {
+    display: flex; /* Arrange parts in a row. */
+    justify-content: space-between; /* Spread them out. */
+    align-items: center; /* Line them up in the middle. */
+    margin-bottom: 20px; /* Space below the bar. */
+    color: #666; /* Medium grey text. */
+    font-size: 18px; /* Good size for text. */
+    font-weight: bold; /* Thick text. */
+    padding: 10px; /* Space inside the bar. */
+    background-color: #f0f8ff; /* A very light blue background. */
+    border-radius: 8px; /* Round corners. */
+}
+
+/* For the "Question 1 / 10" text. */
+.question-counter {
+    color: #4a90e2; /* A clear blue. */
+}
+
+/* NEW: For the "Time: Xs" display. */
+.timer-display {
+    color: #e74c3c; /* A warning red color for the timer! */
+    font-size: 20px; /* Make it a bit bigger to stand out. */
+}
+
+/* For the "Score: 0" text. */
+.score-display {
+    color: #2ecc71; /* A happy green. */
+}
+
+/* This is for the actual question text. */
+.question-text {
+    font-size: 26px; /* Big and clear question. */
+    font-weight: bold; /* Thick letters. */
+    color: #333; /* Dark grey. */
+    margin-bottom: 30px; /* Lots of space below the question. */
+    line-height: 1.4; /* Give lines a bit more space so it's easy to read. */
+}
+
+/* This is the grid for all the answer buttons. */
+.options-grid {
+    display: grid; /* Arrange buttons in a grid. */
+    grid-template-columns: 1fr; /* Start with one big column. */
+    gap: 15px; /* Space between buttons. */
+    margin-bottom: 30px; /* Space below the grid. */
+}
+
+/* This is for each individual answer button. */
+.option-button {
+    background-color: #f5f5f5; /* Light grey background. */
+    color: #444; /* Darker grey text. */
+    padding: 15px; /* Space inside. */
+    border: 2px solid #ddd; /* Light grey border. */
+    border-radius: 8px; /* Round corners. */
+    font-size: 18px; /* Good size for text. */
+    text-align: left; /* Make text start from the left. */
+    cursor: pointer; /* Looks clickable. */
+    transition: all 0.3s ease; /* Smooth changes. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very soft shadow. */
+}
+
+/* What happens when your mouse goes over an answer button. */
+.option-button:not(.option-disabled):hover {
+    background-color: #eee; /* Darker grey. */
+    border-color: #ccc; /* Darker border. */
+    transform: translateY(-2px); /* Jump up a tiny bit. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Stronger shadow. */
+}
+
+/* What happens when an answer button is chosen and it was CORRECT. */
+.option-button.option-correct-selected {
+    background-color: #e6ffe6; /* Very light green. */
+    border-color: #28a745; /* Green border. */
+    color: #218838; /* Dark green text. */
+    font-weight: bold; /* Thick text. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow. */
+}
+
+/* What happens when an answer button is chosen and it was INCORRECT. */
+.option-button.option-incorrect-selected {
+    background-color: #ffe6e6; /* Very light red. */
+    border-color: #dc3545; /* Red border. */
+    color: #b30000; /* Dark red text. */
+    font-weight: bold; /* Thick text. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow. */
+}
+
+/* This highlights the CORRECT answer in green AFTER *any* answer has been selected. */
+.option-button.option-correct-highlight {
+    background-color: #d4edda; /* A slightly darker green. */
+    border-color: #28a745; /* Green border. */
+    color: #155724; /* Even darker green text. */
+    font-weight: bold; /* Thick text. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow. */
+}
+
+
+/* What happens when an answer button is greyed out (after selection). */
+.option-button.option-disabled {
+    cursor: not-allowed; /* Show a "stop" sign for the mouse. */
+    opacity: 0.8; /* Make it a little see-through. */
+}
+
+/* This is for the "Next Question" or "Finish Quiz" button. */
+.next-question-button {
+    background-color: #007bff; /* Bright blue. */
+    color: white; /* White text. */
+    padding: 15px 30px; /* Space inside. */
+    border: none; /* No border. */
+    border-radius: 10px; /* Round corners. */
+    font-size: 20px; /* Big text. */
+    font-weight: bold; /* Thick letters. */
+    cursor: pointer; /* Looks clickable. */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth changes. */
+    width: 100%; /* Stretch across. */
+}
+
+/* What happens when your mouse goes over the "Next Question" button. */
+.next-question-button:hover {
+    background-color: #0056b3; /* Darker blue. */
+    transform: translateY(-3px); /* Jump up a little. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow. */
+}
+
+/* This is the area shown when the quiz is finished. */
+.quiz-finished-area {
+    margin-top: 20px; /* Space above. */
+    text-align: center; /* Center everything. */
+}
+
+/* The "Quiz Finished!" heading. */
+.quiz-finished-heading {
+    font-size: 32px; /* Big and clear. */
+    font-weight: bold; /* Thick. */
+    color: #333; /* Dark grey. */
+    margin-bottom: 20px; /* Space below. */
+}
+
+/* The final score display (e.g., "Your Score: 7 / 10"). */
+.final-score {
+    font-size: 48px; /* Super big score! */
+    font-weight: extra-bold; /* Extra thick letters. */
+    color: #28a745; /* Happy green for the score. */
+    margin-bottom: 40px; /* Lots of space below. */
+}
+
+/* The "Play Again!" button at the end. */
+.play-again-button {
+    background-color: #6c757d; /* A calm grey color. */
+    color: white; /* White text. */
+    padding: 15px 30px; /* Space inside. */
+    border: none; /* No border. */
+    border-radius: 10px; /* Round corners. */
+    font-size: 20px; /* Big text. */
+    font-weight: bold; /* Thick letters. */
+    cursor: pointer; /* Looks clickable. */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth changes. */
+    width: 100%; /* Stretch across. */
+}
+
+/* What happens when your mouse goes over the "Play Again!" button. */
+.play-again-button:hover {
+    background-color: #5a6268; /* Darker grey. */
+    transform: translateY(-3px); /* Jump up a little. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow. */
+}
+
+
+/* -- Responsive Design (Making it look good on small phones!) -- */
+/* This is like saying, "If the screen is smaller than 768 tiny steps, change these things!" */
+@media (max-width: 768px) {
+    .quiz-content-box {
+        padding: 25px; /* Make the space inside a bit smaller. */
+        border-radius: 10px; /* Slightly less round corners. */
+    }
+
+    .quiz-title {
+        font-size: 30px; /* Make the main title a bit smaller. */
+        margin-bottom: 20px; /* Less space below it. */
+    }
+
+    .category-heading {
+        font-size: 20px; /* Smaller category heading. */
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr; /* On small screens, make categories stack in one column. */
+        max-width: 300px; /* Make the category grid narrower. */
+        margin-left: auto; /* Center it. */
+        margin-right: auto; /* Center it. */
+    }
+
+    .category-button, .start-quiz-button {
+        font-size: 16px; /* Smaller text on buttons. */
+        padding: 12px 20px; /* Smaller space inside buttons. */
+    }
+
+    .quiz-info-bar {
+        font-size: 16px; /* Smaller info bar text. */
+    }
+
+    .question-text {
+        font-size: 20px; /* Smaller question text. */
+        margin-bottom: 20px; /* Less space below question. */
+    }
+
+    .option-button {
+        font-size: 16px; /* Smaller answer text. */
+        padding: 12px; /* Smaller space inside answer buttons. */
+    }
+
+    .next-question-button, .play-again-button {
+        font-size: 18px; /* Smaller next/play again button text. */
+        padding: 12px 25px; /* Smaller space inside. */
+    }
+
+    .quiz-finished-heading {
+        font-size: 28px; /* Smaller "Quiz Finished!" heading. */
+    }
+
+    .final-score {
+        font-size: 40px; /* Smaller final score. */
+        margin-bottom: 30px; /* Less space below. */
+    }
+}
+
+/* For even smaller phones */
+@media (max-width: 480px) {
+    .quiz-content-box {
+        padding: 20px; /* Even smaller padding. */
+    }
+
+    .quiz-title {
+        font-size: 28px; /* Smallest title size. */
+    }
+
+    .category-button, .start-quiz-button, .option-button,
+    .next-question-button, .play-again-button {
+        font-size: 14px; /* Smallest text on all buttons. */
+        padding: 10px 15px; /* Smallest padding. */
+    }
+
+    .quiz-info-bar {
+        font-size: 14px; /* Smallest info text. */
+    }
+
+    .question-text {
+        font-size: 18px; /* Smallest question text. */
+    }
+
+    .final-score {
+        font-size: 36px; /* Smallest final score. */
+    }
+}

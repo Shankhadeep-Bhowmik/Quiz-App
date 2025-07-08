@@ -10,9 +10,9 @@ const Home = () => {
           <Link to="/">QUIZ APP</Link>
         </div>
         <ul className='nav-links'>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/quizzes">Quizzes</Link></li>
-          <li><Link to="/profile">Profile</Link></li>
+          {/* <li><Link to="/">Home</Link></li> */}
+          <li><Link to="/quiz">Quizzes</Link></li>
+          
         </ul>
         <div className='btns'>
           <button className='loginBtn'><Link to="/login" >Login</Link></button>
